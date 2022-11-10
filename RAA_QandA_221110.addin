@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+  <AddIn Type="Command">
+    <Text>Command RAA_QandA_221110</Text>
+    <Description>Some description for RAA_QandA_221110</Description>
+    <Assembly>RAA_QandA_221110.dll</Assembly>
+    <FullClassName>RAA_QandA_221110.Command</FullClassName>
+    <ClientId>79f3a876-a841-430b-8153-61a83df25e2f</ClientId>
+    <VendorId>com.typepad.thebuildingcoder</VendorId>
+    <VendorDescription>The Building Coder, http://thebuildingcoder.typepad.com</VendorDescription>
+  </AddIn>
+  <AddIn Type="Application">
+    <Name>Application RAA_QandA_221110</Name>
+    <Assembly>RAA_QandA_221110.dll</Assembly>
+    <FullClassName>RAA_QandA_221110.App</FullClassName>
+    <ClientId>1c57c4e7-c474-401e-9fc0-9842753cbdc8</ClientId>
+    <VendorId>com.typepad.thebuildingcoder</VendorId>
+    <VendorDescription>The Building Coder, http://thebuildingcoder.typepad.com</VendorDescription>
+  </AddIn>
+</RevitAddIns>
