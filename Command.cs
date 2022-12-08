@@ -27,19 +27,28 @@ namespace RAA_QandA_221110
             Application app = uiapp.Application;
             Document doc = uidoc.Document;
 
-            string[] fileNames = new string[0];
+            //string[] fileNames = new string[0];
 
-            using (Forms.OpenFileDialog ofd = new Forms.OpenFileDialog())
-            {
-                ofd.InitialDirectory = "C:\\";
-                ofd.Multiselect = true;
-                ofd.Filter = "RFA files (*.rfa)|*.rfa";
+            //using (Forms.OpenFileDialog ofd = new Forms.OpenFileDialog())
+            //{
+            //    ofd.InitialDirectory = "C:\\";
+            //    ofd.Multiselect = true;
+            //    ofd.Filter = "RFA files (*.rfa)|*.rfa";
 
-                if(ofd.ShowDialog() == Forms.DialogResult.OK)
-                {
-                    fileNames = ofd.FileNames;
-                }
-            }
+            //    if(ofd.ShowDialog() == Forms.DialogResult.OK)
+            //    {
+            //        fileNames = ofd.FileNames;
+            //    }
+            //}
+
+            Form1 curForm = new Form1();
+            if(curForm.ShowDialog() == Forms.DialogResult.Cancel)
+                return Result.Failed;
+
+            List<string> fileNames = curForm.GetFilenamesFromForm();
+            ForgeTypeId groupType = curForm.GetGroupType();
+            ForgeTypeId specType = curForm.GetSpecType();
+            string paramName = curForm.GetParamName();
 
             if (fileNames.Count() > 0)
             {
@@ -53,7 +62,9 @@ namespace RAA_QandA_221110
                         t.Start("Add parameter");
 
                         FamilyManager fm = familyDoc.FamilyManager;
-                        fm.AddParameter("New Parameter", GroupTypeId.Text, SpecTypeId.Number, false);
+                        FamilyParameter newParam = fm.AddParameter(paramName, groupType, specType, false);
+                        fm.SetFormula(newParam, "100*5");
+
 
                         t.Commit();
                         t.Dispose();
