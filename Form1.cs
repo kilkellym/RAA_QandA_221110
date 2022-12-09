@@ -82,7 +82,17 @@ namespace RAA_QandA_221110
 
         internal string GetParamName()
         {
-            return textBox1.Text;
+            return tbName.Text;
+        }
+        
+        internal string GetValue()
+        {
+            return tbValue.Text;
+        }
+
+        internal string GetFormula()
+        {
+            return tbFormula.Text;
         }
     }
 }

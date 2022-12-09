@@ -49,6 +49,8 @@ namespace RAA_QandA_221110
             ForgeTypeId groupType = curForm.GetGroupType();
             ForgeTypeId specType = curForm.GetSpecType();
             string paramName = curForm.GetParamName();
+            string value = curForm.GetValue();
+            string formula = curForm.GetFormula();
 
             if (fileNames.Count() > 0)
             {
@@ -63,7 +65,9 @@ namespace RAA_QandA_221110
 
                         FamilyManager fm = familyDoc.FamilyManager;
                         FamilyParameter newParam = fm.AddParameter(paramName, groupType, specType, false);
-                        fm.SetFormula(newParam, "100*5");
+
+                        if(formula != "")
+                            fm.SetFormula(newParam, "100*5");
 
 
                         t.Commit();
